@@ -35,7 +35,7 @@ function App() {
       <div className="form-wrapper">
         <input className="title-input" onChange={getValue} type="text" placeholder="title"></input>
         <CKEditor
-          editor={ClassicEditor}
+          editor={ClassicEditor} 
           data="<p>Hello from CKEditor 5!</p>"
           onReady={editor => {
             console.log('Editor is ready to use!', editor);
