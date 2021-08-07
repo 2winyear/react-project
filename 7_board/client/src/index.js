@@ -4,5 +4,6 @@ import App from './App';
 
 ReactDOM.render(
     <App />,
+    // <PostList />,
   document.getElementById('root')
 );
