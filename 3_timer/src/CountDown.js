@@ -24,6 +24,7 @@ const CountDown = () => {
     setHour(0);
   }
 
+  
   const run = () => {
     if (sec > 0) {
       setSec(sec - 1);
