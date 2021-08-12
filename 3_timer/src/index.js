@@ -7,7 +7,7 @@ import CountDown from './CountDown';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Clock />
+    <Clock/>
     <Timer />
     <CountDown />
   </React.StrictMode>,

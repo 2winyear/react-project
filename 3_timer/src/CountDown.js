@@ -1,36 +1,49 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const CountDown = () => {
-  const [minutes, setMinutes] = useState(2);
-  const [seconds, setSeconds] = useState(0);
+  const [hour, setHour] = useState(0);
+  const [min, setMin] = useState(0);
+  const [sec, setSec] = useState(0);
 
-  useEffect(() => {
-    const countdown = setInterval(() => {
-      if (parseInt(seconds) > 0) {
-        setSeconds(parseInt(seconds) - 1);
-      }
-      if (parseInt(seconds) === 0) {
-        if (parseInt(minutes) === 0) {
-          clearInterval(countdown);
-        } else {
-          setMinutes(parseInt(minutes) - 1);
-          setSeconds(59);
-        }
-      }
-    }, 1000);
-    return () => clearInterval(countdown);
-  }, [minutes, seconds]);
+  const handleHourIncrease = () => {
+    setHour(hour + 1);
+  };
+
+  const handleMinIncrease = () => {
+    setMin(min + 1);
+  };
+  
+  const handleSecIncrease = () => {
+    setSec(sec + 1);
+  };
+
+  const reset = () => {
+    clearInterval();
+    setSec(0);
+    setMin(0);
+    setHour(0);
+  }
+
+  const run = () => {
+    if (sec > 0) {
+      setSec(sec - 1);
+    }
+  };
+
+  const start = () => {
+    setInterval(run,1000);
+  }
 
   return (
-    <div className="App">
-      <h1>CountDown!</h1>
-      <div>
-        <h2>
-          {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
-        </h2>
-      </div>
+    <div>
+      <h2>{hour}:{min}:{sec}</h2>
+      <button onClick={handleHourIncrease}>+1H</button>
+      <button onClick={handleMinIncrease}>+1M</button>
+      <button onClick={handleSecIncrease}>+1S</button>
+      <button onClick={reset}>reset</button>
+      <button onClick={start}>start</button>
     </div>
-  );
+  )
 }
 
 export default CountDown
