@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 
 const IterationSample = () => {
     const [names, setNames] = useState([
-        {id: 1, text: '눈사람'},
-        {id: 2, text: '얼음'},
-        {id: 3, text: '눈'},
-        {id: 4, text: '바람'},
+        {id: 1, text: '占쎈듌占쎄텢占쎌뿺'},
+        {id: 2, text: '占쎈섰占쎌벉'},
+        {id: 3, text: '占쎈듌'},
+        {id: 4, text: '獄쏅뗀�뿺'},
     ]);
     const [inputText, setInputText] = useState('');
     const [nextId, setNextId] = useState(5);
@@ -32,7 +32,7 @@ const IterationSample = () => {
     return (
     <>
     <input value = {inputText} onChange={onChange} />
-    <button onClick={onClick}>추가</button>
+    <button onClick={onClick}>�빊遺쏙옙占�</button>
     <ul>{namesList}</ul>
     </>
     );

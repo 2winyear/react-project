@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect} from "react";
 
 const CountDown = () => {
   const [hour, setHour] = useState(0);
   const [min, setMin] = useState(0);
   const [sec, setSec] = useState(0);
-
+  
   const handleHourIncrease = () => {
     setHour(hour + 1);
   };
@@ -16,24 +16,38 @@ const CountDown = () => {
   const handleSecIncrease = () => {
     setSec(sec + 1);
   };
-
+  
   const reset = () => {
-    clearInterval();
+    clearInterval(timerId);
     setSec(0);
     setMin(0);
     setHour(0);
   }
 
-  
-  const run = () => {
-    if (sec > 0) {
-      setSec(sec - 1);
-    }
-  };
+  const timerId = useRef(null);
 
   const start = () => {
-    setInterval(run,1000);
+    timerId.current = setInterval(
+      () => setSec((sec) => sec - 1),
+      1000
+    );
+    console.log(timerId.current);
+    console.log(sec);
+  };
+
+  const stop = () => {
+    clearInterval(timerId.current);
   }
+
+  useEffect(() => {
+    if (hour <= 0) {
+      if (min <= 0) {
+        if (sec <= 0) {
+          clearInterval(timerId.current);
+        }
+      }
+    }
+  }, [sec, min, hour]);
 
   return (
     <div>
@@ -43,8 +57,9 @@ const CountDown = () => {
       <button onClick={handleSecIncrease}>+1S</button>
       <button onClick={reset}>reset</button>
       <button onClick={start}>start</button>
+      <button onClick={stop}>stop</button>
     </div>
-  )
-}
+  );
+};
 
-export default CountDown
+export default CountDown;

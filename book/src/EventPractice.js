@@ -19,23 +19,23 @@ const EventPractice = () => {
 
     return (
         <div>
-            <h1>이벤트 연습</h1>
+            <h1>�씠踰ㅽ듃 �뿰�뒿</h1>
             <input 
                 type="text"
                 name="username"
-                placeholder="사용자명"
+                placeholder="�궗�슜�옄紐�"
                 value={username}
                 onChange={onChangeUsername}
             />
             <input
                 type="text"
                 name="message"
-                placeholder="아무거나 입력해 보세요"
+                placeholder="�븘臾닿굅�굹 �엯�젰�빐 蹂댁꽭�슂"
                 value = {message}
                 onChange={onChangeMessage}
                 onKeyPress={onKeyPress}
             />
-            <button onClick = {onClick}>확인</button>
+            <button onClick = {onClick}>�솗�씤</button>
         </div>
     );
 }

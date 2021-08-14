@@ -50,7 +50,7 @@ class LifeCycleSample extends Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
         console.log('componentDidUpdate', prevProps, prevState);
         if(snapshot) {
-            console.log('업데이트되기 직전 색상: ', snapshot);
+            console.log('�뾽�뜲�씠�듃�릺湲� 吏곸쟾 �깋�긽: ', snapshot);
         }
     }
 
@@ -68,7 +68,7 @@ class LifeCycleSample extends Component {
                 </h1>
                 <p>color: {this.state.color}</p>
                 <button onClick={this.handleClick}>
-                    더하기
+                    �뜑�븯湲�
                 </button>
             </div>
         )
