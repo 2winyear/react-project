@@ -31,12 +31,33 @@ const CountDown = () => {
       () => setSec((sec) => sec - 1),
       1000
     );
-    console.log(timerId.current);
-    console.log(sec);
   };
 
+  const tick = () => {
+    if(hour === 0 && min === 0 && sec === 0)
+      reset();
+    else if (min === 0 && sec === 0) {
+      setHour(hour - 1);
+      setMin(59);
+      setSec(59);
+    }
+    else if (sec === 0) {
+      setMin(min - 1);
+      setSec(59);
+    }
+    else {
+      setSec(sec - 1);
+    }
+  };
+
+  useEffect(() => {
+    const timerId = setInterval(() => tick(), 1000);
+    return () => clearInterval(timerId);
+  });
+
   const stop = () => {
-    clearInterval(timerId.current);
+    setSec(sec);
+    clearInterval(timerId);
   }
 
   useEffect(() => {

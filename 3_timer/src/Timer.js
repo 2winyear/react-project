@@ -40,7 +40,6 @@ const Timer = () => {
         setTime({s:0, m:0, h:0});
     };
 
-    
 
     return (
         <div>
