@@ -56,7 +56,6 @@ const CountDown = () => {
   });
 
   const stop = () => {
-    setSec(sec);
     clearInterval(timerId);
   }
 
